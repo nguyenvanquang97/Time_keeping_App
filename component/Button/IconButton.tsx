@@ -1,13 +1,13 @@
 import React, { ReactNode } from 'react';
 import { View, StyleSheet, ViewStyle, Text, GestureResponderEvent } from 'react-native';
 import { TouchableOpacity } from 'react-native';
-import CBText from '../CBText';
+import FText from '../Text/FText';
 import Icon, { IconSource } from 'react-native-paper/src/components/Icon';
 import { } from 'react-native-modal';
-import { COLORS } from '../styles/color';
+import { COLORS } from '../../assets/styles/color';
 
 
-interface IconButton {
+interface FIconButton {
     icon: IconSource | any,
     style?: ViewStyle,
     background?: string,
@@ -15,7 +15,7 @@ interface IconButton {
 
 }
 
-const IconButton: React.FC<IconButton> = ({
+const FIconButton: React.FC<FIconButton> = ({
     icon,
     style,
     background,
@@ -26,7 +26,7 @@ const IconButton: React.FC<IconButton> = ({
         <TouchableOpacity
             onPress={onPress}
             style={[style, {
-                backgroundColor: background ? background : 'white', borderRadius: 50,
+                backgroundColor: background ? background : 'white', borderRadius: 4,
                 justifyContent: 'center',
                 alignItems: 'center',
                 padding: 4,
@@ -39,4 +39,4 @@ const IconButton: React.FC<IconButton> = ({
         </TouchableOpacity>
     );
 };
-export default IconButton;
+export default FIconButton;

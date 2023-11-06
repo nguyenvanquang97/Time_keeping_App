@@ -6,17 +6,21 @@ export const ValidationSchema = yup.object().shape({
     //     .matches(/(\w.+\s).+/, 'Enter at least 2 names')
     //     .required('Full name is required'),
 
-    email: yup
-        .string()
-        .matches(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, 'Email không đúng định dạng')
-        .required('Email Address is Required'),
+    // userName: yup
+    //     .string()
+    //     .matches(/^[a-zA-Z0-9]+$/, 'Tên đăng nhập chỉ được bao gồm chữ cái và chữ số')
+    //     .required('Tên đăng nhập chỉ được bao gồm chữ cái và chữ số'),
+    // email: yup
+    //     .string()
+    //     .matches(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, 'Email không đúng định dạng')
+    //     .required('Email Address is Required'),
 
     // password: yup
     //     .string()
     //     .matches(/\w*[a-z]\w*/, "Mật khẩu phải ít nhất 6 ký tự, bao gồm ký tự hoa, thường, ký tự số")
     //     .matches(/\w*[A-Z]\w*/, "Mật khẩu phải ít nhất 6 ký tự, bao gồm ký tự hoa, thường, ký tự số")
     //     .matches(/\d/, "Mật khẩu phải ít nhất 6 ký tự, bao gồm ký tự hoa, thường, ký tự số")
-    //     .matches(/[!@#$%^&*()\-_"=+{}; :,<.>]/, "Mật khẩu phải ít nhất 6 ký tự, bao gồm ký tự hoa, thường, ký tự sốr")
+    //     .matches(/[!@#$%^&*()\-_"=+{}; :,<.>]/, "Mật khẩu phải ít nhất 6 ký tự, bao gồm ký tự hoa, thường, ký tự số")
     //     .min(6, ({ min }) => `Password must be at least ${min} characters`)
     //     .required('Password is required'),
 

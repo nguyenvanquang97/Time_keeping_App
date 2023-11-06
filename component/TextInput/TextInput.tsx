@@ -2,9 +2,9 @@ import React, { useState, useRef } from 'react';
 import { View, TextInput, Animated, StyleProp, ViewStyle, TextStyle, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { FormikContextType, useFormikContext } from 'formik';
 import Icon, { IconSource } from 'react-native-paper/src/components/Icon';
-import Eye from '../svg/eye';
-import Eye_slash from '../svg/eye-slash';
-import CBText from '../CBText';
+import Eye from '../../assets/svg/eye';
+import Eye_slash from '../../assets/svg/eye-slash';
+import FText from '../Text/FText';
 
 interface Props {
   label: string;
@@ -17,7 +17,7 @@ interface Props {
   // Add any other props you want to pass to the TextInput component here.
 }
 
-const FloatingLabelInput: React.FC<Props> = ({
+const FTextInput: React.FC<Props> = ({
   colorLableInput,
   colorLableOutput,
   name,
@@ -67,10 +67,11 @@ const FloatingLabelInput: React.FC<Props> = ({
   const secureTextEntry1 = name === ('confirmPassword');
   const [showPassword, setShowPassword] = React.useState(false);
   return (
-    <View style={{ width: '100%', marginVertical: 5 }}>
+    <View style={{ width: '100%', marginVertical: 5, }}>
 
       <View style={[
-        styles.Default, (disabled) ? (styles.Disable) : (isFocused ? styles.Focus : (formik.touched[name] && (formik.errors[name] !== undefined)) && (styles.Error))
+        styles.Default, (disabled) ? (styles.Disable) : (isFocused ? styles.Focus : (formik.touched[name] && (formik.errors[name] !== undefined)) && (styles.Error)),
+      
       ]}>
         {iconleft &&
           <TouchableOpacity style={{ width: '10%' }}>
@@ -81,40 +82,44 @@ const FloatingLabelInput: React.FC<Props> = ({
         <Animated.Text style={[labelStyle, { color: isFocused ? (colorLableInput) : (colorLableOutput) }]}>
           {label}
         </Animated.Text>
-        <TextInput
-          {...props}
-          style={{ height: 40, fontSize: 14, flex: 1 }}
-          onFocus={handleFocus}
-          editable={!disabled}
-          onBlur={(e) => {
-            formik.handleBlur(name)(e);
-            handleBlur()
-          }}
-          value={formik.values[name]}
-          onChangeText={formik.handleChange(name)}
-          secureTextEntry={(secureTextEntry && !showPassword) || (secureTextEntry1 && !showPassword)}
-        />
+     
+          <TextInput
+            {...props}
+            style={{ height: 40, fontSize: 14, flex: 1,marginTop:14}}
+            onFocus={handleFocus}
+            editable={!disabled}
+            onBlur={(e) => {
+              formik.handleBlur(name)(e);
+              handleBlur()
+            }}
+            value={formik.values[name]}
+            onChangeText={formik.handleChange(name)}
+            secureTextEntry={(secureTextEntry && !showPassword) || (secureTextEntry1 && !showPassword)}
+          />
+
+    
+        
         {
-          (secureTextEntry || secureTextEntry1) ? (
-            <TouchableOpacity style={{ width: '10%' }} onPress={() => setShowPassword(!showPassword)}>
-              {showPassword ? <Eye /> : <Eye_slash />}
-            </TouchableOpacity>
-          ) : (
-            iconRight &&
-            <TouchableOpacity style={{ width: '10%' }}>
-              {iconRight}
-            </TouchableOpacity>
+            (secureTextEntry || secureTextEntry1) ? (
+              <TouchableOpacity style={{ width: '10%', justifyContent: 'center' }} onPress={() => setShowPassword(!showPassword)}>
+                {showPassword ? <Eye /> : <Eye_slash />}
+              </TouchableOpacity>
+            ) : (
+              iconRight &&
+              <TouchableOpacity style={{ width: '10%', justifyContent: 'center'}}>
+                {iconRight}
+              </TouchableOpacity>
 
-          )
-        }
-
-
+            )
+          }
       </View>
+      
       {formik.touched[name] && formik.errors[name] && (
         <View style={{ marginTop: 5 }}>
-          <CBText styleName='Subtitle3'>{formik.errors[name] as string}</CBText>
+          <FText textStyle='Subtitle3'>{formik.errors[name] as string}</FText>
         </View>
       )}
+
     </View>
 
   );
@@ -122,13 +127,12 @@ const FloatingLabelInput: React.FC<Props> = ({
 const styles = StyleSheet.create({
   Default: {
     borderWidth: 1,
-    backgroundColor: 'white',
     borderColor: '#F3F3F3',
     width: '100%',
-    paddingTop: 14,
     borderRadius: 8,
     paddingHorizontal: 6,
     flexDirection: 'row',
+    
 
   },
   Error: {
@@ -141,4 +145,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#D9D9D9'
   }
 })
-export default FloatingLabelInput;
+export default FTextInput;

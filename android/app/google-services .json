@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "536896550839",
+    "project_id": "loginsocial-47d7a",
+    "storage_bucket": "loginsocial-47d7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536896550839:android:48454e616c3d9614829a32",
+        "android_client_info": {
+          "package_name": "com.time_keeping_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCELeoV6ZJ1l2XbckmPJb9zmDgWK1DhNeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
