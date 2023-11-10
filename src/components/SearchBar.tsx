@@ -1,31 +1,37 @@
-import {StyleSheet, Text, View, TextInput} from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useState} from 'react';
+import { useState } from 'react';
 import Search from '../../assets/svg/search';
+import { useSelector } from 'react-redux';
 type SearchBarProps = {
- 
+
   text?: string;
   handleChangText?: (text: string) => void;
-  placeholder?:string
-  width?:any
+  placeholder?: string
+  width?: any
+  handleKeyPress?: () => void
 };
-export default function SearchBar({handleChangText,text,placeholder,width}:SearchBarProps) {
+export default function SearchBar({ handleChangText, text, placeholder, width, handleKeyPress }: SearchBarProps) {
   const [value, setValue] = useState('');
+
   return (
     <View style={styles.row}>
-      <View style={[styles.search,{width:width??"100%"}]}>
-       <Search/>
+      <View style={[styles.search, { width: width ?? "100%" }]}>
+        <Search />
         <TextInput
           style={styles.textInput}
-          multiline={true}
-          onChangeText={text=>{if(handleChangText){
-            handleChangText(text)
-          }}}
-          placeholder={placeholder??"Tìm kiếm"}
+          multiline={false}
+          onChangeText={text => {
+            if (handleChangText) {
+              handleChangText(text)
+            }
+          }}
+          placeholder={placeholder ?? "Tìm kiếm"}
           placeholderTextColor="#bfbfbf"
-      
-          value={text?text:""}
+          onSubmitEditing={handleKeyPress}
+          clearButtonMode="while-editing"
+          value={text ? text : ""}
         />
       </View>
     </View>
@@ -34,20 +40,20 @@ export default function SearchBar({handleChangText,text,placeholder,width}:Searc
 
 const styles = StyleSheet.create({
   search: {
-    flex:1,
+    flex: 1,
     height: 32,
-    backgroundColor:"#F3F3F3",
+    backgroundColor: "#F3F3F3",
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius:8,
-    paddingLeft:17
+    borderRadius: 8,
+    paddingLeft: 17
   },
   textInput: {
     flex: 1,
     paddingVertical: 5,
     fontSize: 14,
     justifyContent: 'center',
-    
+
   },
   row: {
     flexDirection: 'row',

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { View, TextInput, Animated, StyleProp, ViewStyle, TextStyle, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { FormikContextType, useFormikContext } from 'formik';
 import Icon, { IconSource } from 'react-native-paper/src/components/Icon';
-import Eye from '../../assets/svg/eye';
+import Eye from '../../assets/svg/eye-slash';
 import Eye_slash from '../../assets/svg/eye-slash';
 import FText from '../Text/FText';
 

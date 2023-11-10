@@ -21,7 +21,7 @@ const TextStyle = StyleSheet.create({
   },
   //Headline
   headline1: {
-    fontSizef: 38,
+    fontSize: 38,
     lineHeight: 48,
     fontWeight: '500'
   },
@@ -62,7 +62,7 @@ const TextStyle = StyleSheet.create({
   },
   //Title
   largetitle: {
-    ontSizef: 38,
+    fo: 38,
     lineHeight: 48,
     fontWeight: '500'
   },

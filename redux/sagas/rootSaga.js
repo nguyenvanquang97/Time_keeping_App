@@ -1,5 +1,5 @@
 import { all } from 'redux-saga/effects';
-import { watchGetOrder, watchGetOrderStatus } from './orderSaga';
+import { watchFilterData, watchGetOrder, watchGetOrderStatus } from './orderSaga';
 import { watchLogin } from './accountSaga';
 
 
@@ -8,5 +8,6 @@ export default function* rootSaga() {
         watchGetOrder(),
         watchLogin(),
         watchGetOrderStatus(),
+        watchFilterData()
     ]);
 }

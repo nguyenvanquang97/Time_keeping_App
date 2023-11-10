@@ -8,14 +8,14 @@ type CustomButtonProps = {
   backgroundColor: string;
   textColor: string;
   name: string;
-  width?: string;
+  width?: any;
 };
 
 export default function CustomButton({ backgroundColor, textColor, name, width }: CustomButtonProps) {
   return (
 
 
-    <View style={[styles.button, { backgroundColor, width: width ? width : '92%', }]}>
+    <View style={[styles.button, { backgroundColor, width: width ?? '92%' }]}>
       <Text style={[commonStyles.text_14, { color: textColor, textAlign: 'center' }]}>{name}</Text>
     </View>
 

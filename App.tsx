@@ -60,6 +60,7 @@ import { legacy_createStore as createStore, applyMiddleware } from 'redux';
 import allReducers from './redux/reducers';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './redux/sagas/rootSaga';
+import AdvancedSearch from './src/Screen/ManageSenders/AdvancedSearch';
 
 
 export type RootStackParamList = {
@@ -95,7 +96,8 @@ export type RootStackParamList = {
   AddGoods: undefined
   test: undefined
   CreateOrders: undefined,
-  ManageSender:undefined
+  ManageSender:undefined,
+  AdvancedSearch:undefined
 };
 const screenOptions = {
   headerShown: false,
@@ -120,6 +122,7 @@ function App(): JSX.Element {
           <RootStack.Screen name='Sigup' component={SignUp} />
           <RootStack.Screen name='Authenphone' component={Authenphone} />
           <RootStack.Screen name='ForgetPhone' component={ForgetPhone} />
+          <RootStack.Screen name='AdvancedSearch' component={AdvancedSearch} />
           <RootStack.Screen name='ForgetPhone2' component={ForgetPhone2} />
           <RootStack.Screen name='ChangePass' component={ChangePass} />
           <RootStack.Screen name='Home' component={Home} />

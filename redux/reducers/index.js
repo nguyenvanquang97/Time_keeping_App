@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import orderReducer from './orderReducer';
 import accountReducer from './accountReducer';
+import searchReducer from './searchReducer';
 const allReducers = combineReducers({
     orderReducer,
-    accountReducer
+    accountReducer,
+    searchReducer,
 });
 export default allReducers;
